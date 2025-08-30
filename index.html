@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CyberDev - Mein Portfolio</title>
+  <link rel="stylesheet" href="custom.css" />
+</head>
+<body>
+  <canvas id="matrix"></canvas>
+  <header>
+    <h4>Frontend | JavaScript | React | DevSecOps</h4>
+    <h1>&#x1F4BB; CyberDev - Webentwickler</h1>
+    <nav aria-label="Hauptnavigation">
+      <a href="#about">Über mich</a>
+      <a href="#projects">Projekte</a>
+      <a href="#certificates">Zertifikate</a>
+      <a href="#contact">Kontakt</a>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2>Über mich</h2>
+    <p>"Als leidenschaftlicher Webentwickler mit Erfahrung in HTML, CSS und JavaScript verbinde ich mein technisches Wissen mit meiner tiefen Faszination für Cybersicherheit. Ich spezialisiere mich auf Penetration Testing und Ethical Hacking, um Schwachstellen in Systemen zu finden und zu beheben.Aktuell vertiefe ich mein Wissen aktiv auf der Plattform Hack The Box und absolviere eine Weiterbildung zum IT Security Coordinator (IHK). Diese Kombination aus praktischer Webentwicklung und fundierter Cybersicherheit ermöglicht es mir, moderne und sichere Anwendungen zu entwickeln und gleichzeitig eine offensive Denkweise zu kultivieren."</p>
+  </section>
+
+  <section id="projects">
+    <h2>Projekte</h2>
+
+    <div class="project">
+      <h3>Cyber Hello</h3>
+       <p>""Eine einfache, aber effektive Webseite, die ich zur Übung der grundlegenden Webentwicklung erstellt habe. Das Projekt demonstriert grundlegende HTML-Strukturen und die Einbindung von externen CSS-Stylesheets sowie die Verwendung von Skripten."</p>
+        <a href="https://github.com/SterlingSH25/Cyber-hello" target="_blank">Code ansehen</a>
+        <a href="https://sterlingsh25.github.io/Cyber-hello/hello.html" target="_blank">Live-Demo</a>
+    </div>
+
+    <div class="project">
+      <h3>Taschenrechner</h3>
+       <p>Ein einfaches Web-Tool, das grundlegende Rechenoperationen ermöglicht. Dieses Projekt diente als mein erster praktischer Einstieg in die interaktive Webentwicklung und das Zusammenspiel von HTML, CSS und JavaScript.</p>
+        <a href="https://github.com/SterlingSH25/Taschenrechner" target="_blank">Code ansehen</a>
+        <a href="https://SterlingSH25.github.io/Taschenrechner/" target="_blank">Live-Demo</a>
+    </div>
+
+    <div class="project">
+      <h3>URL- & Base64-Tool</h3>
+       <p>Ein praktisches Werkzeug für Cybersicherheit, das Texte in URL- und Base64-Formate kodiert und dekodiert. Demonstriert den Umgang mit Kodierungsmethoden, die im Penetration Testing häufig verwendet werden. (Technologien: HTML, CSS, JavaScript)</p>
+        <a href="https://github.com/SterlingSH25/CyberToolbox" target="_blank">Code ansehen</a>
+        <a href="https://SterlingSH25.github.io/CyberToolbox/" target="_blank">Live-Demo</a>
+    </div>
+</section>
+
+  <section id="certificates">
+    <h2>Zertifikate</h2>
+    <ul>
+      <li><p>IHK-Zertifikat IT Security Coordinator (in Arbeit)</p></li>
+      <li><p>Udemy: WebCampus Deine ertse Webseite mit HTML, CSS & JavaScript </p></li>
+      <li><p>Alison: Linux for Absolute Beginners</p></li>
+      <li><p>Alison: Linux Network Administrator</p></li>
+      <li><p>Weiteres (geplant)</p></li>
+    </ul>
+    
+  </section>
+
+  <section id="contact">
+    <h2>Kontakt</h2>
+    <p>E-Mail: <a href="mailto:shaimasterling@gmail.com">shaimasterling@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/SterlingSH25" target="_blank">github.com/SterlingSH25</a></p>
+  </section>
+
+  <footer>
+    <p>© 2025 Shaima Assisi</p>
+  </footer>
+  <script>
+    const canvas = document.getElementById('matrix');
+    const ctx = canvas.getContext('2d');
+  
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+  
+    const letters = 'アァイィウヴカガキギクグケゲコゴサザシジスズセゼソゾタダチッヂヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモヤユヨラリルレロワヲンABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    const matrix = letters.split('');
+    const fontSize = 14;
+    const columns = canvas.width / fontSize;
+    const drops = Array(Math.floor(columns)).fill(1);
+  
+    function draw() {
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+  
+      ctx.fillStyle = '#00ff99';
+      ctx.font = fontSize + 'px monospace';
+  
+      for (let i = 0; i < drops.length; i++) {
+        const text = matrix[Math.floor(Math.random() * matrix.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+  
+        if (drops[i] * fontSize > canvas.height || Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+    }
+  
+    setInterval(draw, 35);
+  
+    // Responsives Canvas
+    window.addEventListener('resize', () => {
+      canvas.height = window.innerHeight;
+      canvas.width = window.innerWidth;
+    });
+  </script>
+</body>
+</html>

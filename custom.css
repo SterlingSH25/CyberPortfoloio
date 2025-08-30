@@ -1,0 +1,59 @@
+#matrix {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background: rgb(10, 9, 9);
+}
+body {
+    margin: 0;
+    font-family: 'Courier New', monospace;
+    background-color: #cfc8c8;
+    color: #c6d3ce;
+    line-height: 1.6;
+  }
+  
+  header {
+    background: #111;
+    padding: 2rem;
+    text-align: center;
+    border-bottom: 1px solid #33ca90;
+  }
+  
+  nav a {
+    margin: 0 1rem;
+    color: #c6d3ce;
+    text-decoration: none;
+  }
+  
+  nav a:hover {
+    text-decoration: underline;
+  }
+  
+  section {
+    padding: 2rem;
+    background: #000000aa;
+    margin-bottom: 1rem;
+    border-left: 4px solid #2c6328;
+  }
+  
+  .project {
+    background: #00000039;
+  }
+  
+  a {
+    color: #00ff99;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 1rem;
+    border-top: 1px solid #00ff99d1;
+    background: #111;
+  }
